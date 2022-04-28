@@ -1,8 +1,6 @@
 import React from 'react';
 
 import Head from 'next/head';
-import 'antd/dist/antd.css';
-import  '../CSS/antdMobile.css';
 import wrapper from '../store/configureStore';
 
 
