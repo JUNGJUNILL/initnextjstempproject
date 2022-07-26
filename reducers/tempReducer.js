@@ -1,4 +1,4 @@
-import produce from '../utils/produce';
+import immerProduce from '../utils/produce';
 export const  initialState = {
 
     //temp List
@@ -15,25 +15,21 @@ export const TEMP_FAILURE='TEMP_FAILURE';
 
 
 
-const reducer = (state = initialState, action) => produce(state, (draft) => {
+const reducer = (state = initialState, action) => immerProduce(state, (draft) => {
 
     switch(action.type){
 
 //temp List
 //--------------------------------------------------------------------
-        case TEMP_REQUEST : {    
+        case TEMP_REQUEST : { 
             break;
         }
         case TEMP_SUCCESS : {
-            draft.btnLoading=false; 
-            draft.reginValue=action.region; 
-    
-            //지역 정보를 바꿨을 경우 배열 초기화
-            if(action.changeLocalValue){
-                draft.dealerInfoList.length=0; 
-            }
-            draft.PerDataLength=action.data.length;
-            draft.dealerInfoList=draft.dealerInfoList.concat(action.data); 
+            draft.tempList.length=0;
+            action.data.dataArray.forEach((v)=>{
+                draft.tempList.push(v); 
+            });
+            
             break;
 
         }
