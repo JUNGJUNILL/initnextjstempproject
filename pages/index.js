@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React , {useState,useEffect,useCallback}from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import {useRouter} from 'next/router'; 
 
 import 
     {TEMP_REQUEST,} 
@@ -11,31 +12,31 @@ from '../reducers/tempReducer';
 const Home =()=>{
 
   const dispatch              = useDispatch(); 
-  const {tempList} =useSelector((state)=>state.tempReducer); 
+  const router = useRouter(); 
+  const button = ()=>{
+    router.push('/posts/tempList'); 
 
+  }
 
-  useEffect(()=>{
-
-
-     dispatch({
-       type:TEMP_REQUEST,
-          data:{clientIp:'010-8805-5172',
-          init:'initLoad',
-          start:0,
-          end:20
-        },
-    });
-    
-  },[]); 
+  const preventClose = (e) => { 
+    alert("삐약삐약");
+   e.preventDefault();  
+   e.returnValue = "";
+  };
+  
+//https://snupi.tistory.com/195
+  
+  useEffect(() => {  (() => {    window.addEventListener("beforeunload", preventClose);  })();   return () => {    window.removeEventListener("beforeunload", preventClose);  };}, []);
 
   return (
+
     <div className="container">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-     
+      <input type="button" value="버튼" onClick={button} />
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!!!!!!!!!!!!!!!</a>
         </h1>
