@@ -27,7 +27,7 @@ const Home =()=>{
 //https://snupi.tistory.com/195
   
   useEffect(() => {  (() => {    window.addEventListener("beforeunload", preventClose);  })();   return () => {    window.removeEventListener("beforeunload", preventClose);  };}, []);
-
+  const abc="abc111";
   return (
 
     <div className="container">
@@ -37,7 +37,7 @@ const Home =()=>{
       </Head>
       <main>
       <input type="button" value="버튼" onClick={button} />
-      <Link href="/posts/[dynamicRouting]" as={`/posts/빠락스비어`}><a>다이나믹 라우터</a></Link>
+      <Link href={`/posts/[dynamicRouting]`} as={`/posts/dynamicRouting?abc=${abc}`} ><a>다이나믹 라우터</a></Link>
       <br/>
       <Link href="/posts/dynamicRouting" ><a>다이나믹 라우터2</a></Link>
       <br/>
