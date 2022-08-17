@@ -6,7 +6,7 @@ import {useRouter} from 'next/router';
 import 
     {TEMP_REQUEST,} 
 from '../reducers/tempReducer'; 
-
+import Link from 'next/link'
 
 
 const Home =()=>{
@@ -37,6 +37,7 @@ const Home =()=>{
       </Head>
       <main>
       <input type="button" value="버튼" onClick={button} />
+      <Link href="/posts/[dynamicRouting]" as={`/posts/dynamicRouting`}><a>다이나믹 라우터</a></Link>
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!!!!!!!!!!!!!!!</a>
         </h1>
