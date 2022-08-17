@@ -37,7 +37,10 @@ const Home =()=>{
       </Head>
       <main>
       <input type="button" value="버튼" onClick={button} />
-      <Link href="/posts/[dynamicRouting]" as={`/posts/dynamicRouting`}><a>다이나믹 라우터</a></Link>
+      <Link href="/posts/[dynamicRouting]" as={`/posts/빠락스비어`}><a>다이나믹 라우터</a></Link>
+      <br/>
+      <Link href="/posts/dynamicRouting" ><a>다이나믹 라우터2</a></Link>
+      <br/>
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!!!!!!!!!!!!!!!</a>
         </h1>
